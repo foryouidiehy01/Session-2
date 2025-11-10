@@ -1,0 +1,17 @@
+create database CompanyDB;
+use CompanyDB;
+create table Employees (
+EmployeeID int primary key,
+FirstName varchar( 255 ),
+LastName varchar( 255 ),
+HireDate date,
+Salary decimal (10,2)
+);
+
+alter table Employees
+add Department varchar(255);
+
+alter table Employees
+modify column Salary decimal ( 10 , 2 );
+
+select * from Employees;

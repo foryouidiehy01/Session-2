@@ -1,0 +1,20 @@
+create database CompanyDB;
+use CompanyDB;
+
+create table Customer (
+CustomerID int primary key not null,
+CustomerName varchar   ( 200 )
+);
+
+create table Orders (
+OrderID int primary key not null,
+OrderDate date not null,
+CustomerID int  not null,
+TotalAmount decimal ( 10 , 2 ) not null,
+constraint fk_customer
+foreign key (CustomerID) references Customer (CustomerID),
+constraint fk_totalamount 
+check ( TotalAmount >= 0 )
+);
+
+select * from Orders;

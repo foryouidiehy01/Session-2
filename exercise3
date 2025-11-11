@@ -1,0 +1,36 @@
+create database CompanyDB;
+use CompanyDB;
+
+create table Departments(
+DepartmentID int not null primary key,
+DepartmentName varchar(255)
+);
+
+create table Employees (
+EmployeeID int not null primary key,
+FirstName varchar( 200 ),
+LastName varchar ( 200 ),departments
+Salary decimal ( 10, 2 ),
+DepartmentID int,
+foreign key ( DepartmentID ) references Departments ( DepartmentID )
+);
+
+insert into Departments( DepartmentID , DepartmentName )
+values 
+( 1, 'Phòng kinh doanh'),
+( 2, 'Phòng kĩ thuật');
+
+insert into Employees ( EmployeeID , FirstName , LastName , Salary , DepartmentID )
+values 
+(1, 'Nguyễn văn', 'A', 1000.00,1 ),
+(2, 'Nguyễn thị', 'B', 1000.22,2 );
+
+select * from Employees;
+select * from Departments;
+
+update Employees 
+set Salary = 2000.00
+where EmployeeID = 2;
+
+delete from Employees
+where Salary < 2000;
